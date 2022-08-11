@@ -1,0 +1,22 @@
+VERSION 8
+POSITION . . 400 100
+DIALOG main, label("Preferences Input")
+	BEGIN
+		TEXT     txt      10 10 380   .     , label("PLEASE ENTER: Path to HILDA Files")
+		EDIT     edt1      10 30  380 50     , default(global OZ_datapath) nomemory
+	END
+OK     ok1, label("OK")
+CANCEL can1, label("Cancel")
+RESET  res1
+PROGRAM command
+BEGIN
+	put "__000000"
+	beginoptions
+		put "v("
+		put main.edt1
+		put ") "
+		put "m("
+		put "OZ_datapath"
+		put ") "
+	endoptions
+END
